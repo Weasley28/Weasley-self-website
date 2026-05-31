@@ -47,9 +47,9 @@ const visitedCountries = [
     latLng: [35.9078, 127.7669],
     labelDirection: "right",
     labelOffset: [10, -4],
-    flag: "./assets/images/flag-kr.png",
+    flag: "./assets/flag-kr.png",
     capitalImage:
-      "./assets/images/travel-kr-seoul.jpg",
+      "./assets/travel-kr-seoul.jpg",
   },
   {
     country: "越南",
@@ -57,9 +57,9 @@ const visitedCountries = [
     latLng: [14.0583, 108.2772],
     labelDirection: "top",
     labelOffset: [0, -12],
-    flag: "./assets/images/flag-vn.png",
+    flag: "./assets/flag-vn.png",
     capitalImage:
-      "./assets/images/travel-vn-hanoi.jpg",
+      "./assets/travel-vn-hanoi.jpg",
   },
   {
     country: "新加坡",
@@ -67,9 +67,9 @@ const visitedCountries = [
     latLng: [1.3521, 103.8198],
     labelDirection: "bottom",
     labelOffset: [0, 12],
-    flag: "./assets/images/flag-sg.png",
+    flag: "./assets/flag-sg.png",
     capitalImage:
-      "./assets/images/travel-sg-singapore.jpg",
+      "./assets/travel-sg-singapore.jpg",
   },
   {
     country: "马来西亚",
@@ -77,9 +77,9 @@ const visitedCountries = [
     latLng: [4.2105, 101.9758],
     labelDirection: "left",
     labelOffset: [-10, 0],
-    flag: "./assets/images/flag-my.png",
+    flag: "./assets/flag-my.png",
     capitalImage:
-      "./assets/images/travel-my-kuala-lumpur.jpg",
+      "./assets/travel-my-kuala-lumpur.jpg",
   },
   {
     country: "泰国",
@@ -87,9 +87,9 @@ const visitedCountries = [
     latLng: [15.87, 100.9925],
     labelDirection: "right",
     labelOffset: [10, 0],
-    flag: "./assets/images/flag-th.png",
+    flag: "./assets/flag-th.png",
     capitalImage:
-      "./assets/images/travel-th-bangkok.jpg",
+      "./assets/travel-th-bangkok.jpg",
   },
   {
     country: "英国",
@@ -97,9 +97,9 @@ const visitedCountries = [
     latLng: [55.3781, -3.436],
     labelDirection: "left",
     labelOffset: [-8, 0],
-    flag: "./assets/images/flag-gb.png",
+    flag: "./assets/flag-gb.png",
     capitalImage:
-      "./assets/images/travel-gb-london.jpeg",
+      "./assets/travel-gb-london.jpeg",
   },
   {
     country: "意大利",
@@ -107,9 +107,9 @@ const visitedCountries = [
     latLng: [41.8719, 12.5674],
     labelDirection: "bottom",
     labelOffset: [0, 12],
-    flag: "./assets/images/flag-it.png",
+    flag: "./assets/flag-it.png",
     capitalImage:
-      "./assets/images/travel-it-rome.jpg",
+      "./assets/travel-it-rome.jpg",
   },
   {
     country: "奥地利",
@@ -117,9 +117,9 @@ const visitedCountries = [
     latLng: [47.5162, 14.5501],
     labelDirection: "right",
     labelOffset: [10, 0],
-    flag: "./assets/images/flag-at.png",
+    flag: "./assets/flag-at.png",
     capitalImage:
-      "./assets/images/travel-at-vienna.jpg",
+      "./assets/travel-at-vienna.jpg",
   },
   {
     country: "丹麦",
@@ -127,9 +127,9 @@ const visitedCountries = [
     latLng: [56.2639, 9.5018],
     labelDirection: "top",
     labelOffset: [0, -10],
-    flag: "./assets/images/flag-dk.png",
+    flag: "./assets/flag-dk.png",
     capitalImage:
-      "./assets/images/travel-dk-copenhagen.jpg",
+      "./assets/travel-dk-copenhagen.jpg",
   },
   {
     country: "冰岛",
@@ -137,9 +137,9 @@ const visitedCountries = [
     latLng: [64.9631, -19.0208],
     labelDirection: "top",
     labelOffset: [0, -10],
-    flag: "./assets/images/flag-is.png",
+    flag: "./assets/flag-is.png",
     capitalImage:
-      "./assets/images/travel-is-reykjavik.jpg",
+      "./assets/travel-is-reykjavik.jpg",
   },
   {
     country: "美国",
@@ -147,9 +147,9 @@ const visitedCountries = [
     latLng: [37.0902, -95.7129],
     labelDirection: "right",
     labelOffset: [10, 0],
-    flag: "./assets/images/flag-us.png",
+    flag: "./assets/flag-us.png",
     capitalImage:
-      "./assets/images/travel-us-washington-dc.jpg",
+      "./assets/travel-us-washington-dc.jpg",
   },
 ];
 
