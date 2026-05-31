@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>杨思翰 CV | Weasley</title>
+    <meta
+      name="description"
+      content="一个 2D 纵向卷轴像素个人主页，完整展示个人信息、简历、爱好、特长、项目和联系方式。"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./styles.css?v=stage-coins1" />
+  </head>
+  <body>
+    <main class="pixel-world" data-app>
+      <header class="hud" aria-label="像素主页状态栏">
+        <a class="brand" href="#profile" aria-label="回到个人信息关卡">
+          <span class="mini-hero" aria-hidden="true"><i></i></span>
+          <span>
+            <strong>player 杨思翰</strong>
+          </span>
+        </a>
+
+        <nav class="hud-nav" aria-label="页面模块">
+          <a href="#profile">个人信息</a>
+          <a href="#resume">简历</a>
+          <a href="#hobbies">爱好</a>
+          <a href="#strengths">技能</a>
+          <a href="#projects">项目</a>
+          <a href="#contact">联系我</a>
+        </nav>
+
+        <div class="hud-stat" aria-label="金币">
+          <span>COIN</span>
+          <strong><i class="coin-dot" aria-hidden="true"></i><b data-coins>00</b></strong>
+        </div>
+
+        <div class="hud-stat stage-stat" aria-label="当前关卡">
+          <span>STAGE</span>
+          <strong data-stage-label>个人信息</strong>
+        </div>
+
+        <button class="sound-button" type="button" data-sound-toggle aria-pressed="false">
+          <span aria-hidden="true">♪</span>
+          <b>OFF</b>
+        </button>
+      </header>
+
+      <section class="welcome-screen" data-welcome aria-live="polite">
+        <div class="welcome-card">
+          <span class="welcome-avatar" aria-hidden="true"><i></i></span>
+          <p>PLAYER 1</p>
+          <strong>欢迎来到杨思翰Weasley的世界！</strong>
+          <div class="welcome-loading" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+
+      <aside class="runway" aria-label="滚动进度">
+        <div class="runway-track">
+          <span class="checkpoint checkpoint-top" aria-hidden="true"></span>
+          <div class="runner" data-runner aria-hidden="true">
+            <span class="runner-shadow"></span>
+            <span class="runner-cap"></span>
+            <span class="runner-face"></span>
+            <span class="runner-body"></span>
+            <span class="runner-legs"></span>
+          </div>
+          <span class="checkpoint checkpoint-bottom" aria-hidden="true"></span>
+        </div>
+      </aside>
+
+      <section class="stage stage-profile" id="profile" data-stage-title="个人信息">
+        <div class="pixel-clouds small-clouds" aria-hidden="true">
+          <span class="cloud cloud-a"></span>
+          <span class="cloud cloud-b"></span>
+        </div>
+        <div class="pipe pipe-left" aria-hidden="true"></div>
+        <div class="pipe pipe-right" aria-hidden="true"></div>
+        <div class="profile-game-decor" aria-hidden="true">
+          <span class="pixel-hill hill-a"></span>
+          <span class="pixel-hill hill-b"></span>
+          <span class="bonus-coin coin-a"></span>
+          <span class="bonus-coin coin-b"></span>
+          <span class="bonus-coin coin-c"></span>
+          <span class="float-brick brick-a"></span>
+          <span class="float-brick brick-b"></span>
+          <span class="float-block block-a">?</span>
+          <span class="pixel-star star-a"></span>
+          <span class="pixel-star star-b"></span>
+        </div>
+        <div class="coin-trail trail-profile" aria-label="第一关金币">
+          <button class="coin-button" type="button" data-coin="profile-1" aria-label="收集第一关金币 1"></button>
+          <button class="coin-button" type="button" data-coin="profile-2" aria-label="收集第一关金币 2"></button>
+          <button class="coin-button" type="button" data-coin="profile-3" aria-label="收集第一关金币 3"></button>
+        </div>
+
+        <div class="stage-inner profile-layout">
+          <div class="stage-copy profile-intro">
+            <p class="eyebrow">第一关 · 个人信息</p>
+            <h1>杨思翰<br /><span>Weasley</span></h1>
+
+            <div class="hero-actions">
+              <a href="#resume">下一关</a>
+            </div>
+
+            <div class="mini-mario-scene pixel-panel" aria-hidden="true">
+              <span class="mario-cloud mini-cloud-a"></span>
+              <span class="mario-cloud mini-cloud-b"></span>
+              <span class="mario-brick mini-brick-a"></span>
+              <span class="mario-brick mini-brick-b"></span>
+              <span class="mario-question">?</span>
+              <span class="mario-coin mini-coin-a"></span>
+              <span class="mario-coin mini-coin-b"></span>
+              <span class="mario-pipe-mini"></span>
+              <span class="mario-mushroom"></span>
+              <span class="mario-player-mini"><i></i><b></b></span>
+            </div>
+          </div>
+
+          <figure class="profile-photo pixel-panel" aria-label="杨思翰 Weasley 照片">
+            <img src="./assets/profile-weasley.jpg" alt="杨思翰 Weasley 的个人照片" />
+            <figcaption>PLAYER · WEASLEY</figcaption>
+          </figure>
+
+          <div class="profile-details">
+            <dl class="info-grid">
+              <div>
+                <dt>姓名</dt>
+                <dd>杨思翰</dd>
+              </div>
+              <div>
+                <dt>英文名</dt>
+                <dd>Weasley</dd>
+              </div>
+              <div>
+                <dt>城市</dt>
+                <dd>现居：上海 / 家乡：广州</dd>
+              </div>
+              <div>
+                <dt>方向</dt>
+                <dd>AI产品经理 / 产品经理</dd>
+              </div>
+              <div>
+                <dt>关键词</dt>
+                <dd>思维活跃、不拘一格；做事脚踏实地、逻辑导向</dd>
+              </div>
+            </dl>
+
+            <div class="question-row" aria-label="个人标签砖块">
+              <button class="question-block" type="button" data-reveal="MBTI：ENFP">?</button>
+              <button class="question-block" type="button" data-reveal="终极梦想：不上班躺平 and 环游世界">?</button>
+              <button class="question-block" type="button" data-reveal="最近喜欢：vibe coding">?</button>
+              <output class="reveal-output" data-profile-output>BONUS READY</output>
+            </div>
+          </div>
+        </div>
+
+        <div class="brick-wall wall-profile" aria-hidden="true"></div>
+        <div class="ground grass-ground" aria-hidden="true"></div>
+      </section>
+
+      <section class="stage stage-resume" id="resume" data-stage-title="简历">
+        <div class="coop-decor" aria-hidden="true">
+          <span class="thread-line thread-a"></span>
+          <span class="thread-line thread-b"></span>
+          <span class="thread-line thread-c"></span>
+          <span class="button-token button-a"></span>
+          <span class="button-token button-b"></span>
+          <span class="button-token button-c"></span>
+          <span class="paper-star paper-star-a"></span>
+          <span class="paper-star paper-star-b"></span>
+          <span class="tool-sticker sticker-pencil"></span>
+          <span class="tool-sticker sticker-hammer"></span>
+          <span class="coop-doll doll-a"><i></i><b></b></span>
+          <span class="coop-doll doll-b"><i></i><b></b></span>
+          <span class="plush-elephant"><i></i><b></b></span>
+          <span class="coop-book"><i></i><b></b></span>
+          <span class="yarn-ball yarn-a"><i></i></span>
+          <span class="yarn-ball yarn-b"><i></i></span>
+          <span class="sewing-needle needle-a"></span>
+          <span class="patch-flower flower-a"><i></i></span>
+          <span class="patch-sun"><i></i></span>
+          <span class="wood-spool spool-a"></span>
+          <span class="wood-spool spool-b"></span>
+        </div>
+        <div class="coin-trail trail-resume" aria-label="第二关金币">
+          <button class="coin-button" type="button" data-coin="resume-1" aria-label="收集第二关金币 1"></button>
+          <button class="coin-button" type="button" data-coin="resume-2" aria-label="收集第二关金币 2"></button>
+          <button class="coin-button" type="button" data-coin="resume-3" aria-label="收集第二关金币 3"></button>
+        </div>
+
+        <div class="stage-inner resume-layout coop-layout">
+          <div class="stage-copy coop-copy">
+            <p class="eyebrow coop-eyebrow">第二关 · 简历</p>
+
+            <div class="hero-actions coop-actions">
+              <a href="#hobbies">下一关</a>
+              <a href="./assets/weasley-resume.pdf" target="_blank" rel="noreferrer">下载简历</a>
+            </div>
+
+            <div class="mini-coop-game-scene pixel-panel" aria-hidden="true">
+              <span class="coop-scene-thread"></span>
+              <span class="coop-scene-platform platform-left"></span>
+              <span class="coop-scene-platform platform-right"></span>
+              <span class="coop-scene-button scene-button-a"></span>
+              <span class="coop-scene-button scene-button-b"></span>
+              <span class="coop-scene-player coop-player-cody"><i></i><b></b></span>
+              <span class="coop-scene-player coop-player-may"><i></i><b></b></span>
+              <span class="coop-scene-hammer"></span>
+              <span class="coop-scene-yarn"></span>
+              <span class="coop-scene-book"></span>
+            </div>
+
+            <div class="resume-side-card pixel-panel" aria-label="教育背景">
+              <article class="resume-item">
+                <span>01</span>
+                <div>
+                  <h2>教育背景</h2>
+                  <div class="resume-list resume-education-list">
+                    <div class="resume-line education-line">
+                      <strong>硕士</strong>
+                      <b>哥伦比亚大学（在读）</b>
+                      <em>专业：国际金融与经济政策</em>
+                      <time>2025.9 - 2027.12</time>
+                    </div>
+                    <div class="resume-line education-line">
+                      <strong>本科</strong>
+                      <b>上海财经大学</b>
+                      <em>专业：经贸日语</em>
+                      <time>2021.9 - 2025.6</time>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="resume-scroll coop-resume-panel pixel-panel" aria-label="实习经历">
+            <div class="scroll-top" aria-hidden="true"></div>
+            <span class="resume-craft-sticker sticker-book-mini" aria-hidden="true"><i></i></span>
+            <span class="resume-craft-sticker sticker-elephant-mini" aria-hidden="true"><i></i><b></b></span>
+            <article class="resume-item">
+              <span>02</span>
+              <div>
+                <h2>实习经历</h2>
+                <div class="resume-list internship-list">
+                  <div class="resume-line internship-line">
+                    <time>2026.4 - 至今</time>
+                    <b>阅文集团（腾讯PCG平台与内容事业群）</b>
+                    <em>海外产品经理实习生</em>
+                    <strong>上海</strong>
+                  </div>
+                  <div class="resume-line internship-line">
+                    <time>2026.1 - 2026.4</time>
+                    <b>字节跳动 TikTok-PGC部门</b>
+                    <em>短剧运营实习生</em>
+                    <strong>上海</strong>
+                  </div>
+                  <div class="resume-line internship-line">
+                    <time>2024.10 - 2025.1</time>
+                    <b>竹润投资</b>
+                    <em>固定收益组实习生</em>
+                    <strong>上海</strong>
+                  </div>
+                  <div class="resume-line internship-line">
+                    <time>2023.7 - 2023.9</time>
+                    <b>德勤会计师事务所</b>
+                    <em>金融审计实习生</em>
+                    <strong>上海</strong>
+                  </div>
+                  <div class="resume-line internship-line">
+                    <time>2023.1 - 2023.4</time>
+                    <b>兴业证券</b>
+                    <em>海外TMT组行业研究实习生</em>
+                    <strong>上海</strong>
+                  </div>
+                  <div class="resume-line internship-line">
+                    <time>2022.7 - 2022.9</time>
+                    <b>中国银行白云支行</b>
+                    <em>人力资源实习生</em>
+                    <strong>广州</strong>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <div class="coop-story-scene" aria-hidden="true">
+              <span class="story-stitched-path path-a"></span>
+              <span class="story-stitched-path path-b"></span>
+              <span class="story-doll story-doll-cody"><i></i><b></b></span>
+              <span class="story-doll story-doll-may"><i></i><b></b></span>
+              <span class="story-book"><i></i><b></b><em></em></span>
+              <span class="story-elephant"><i></i><b></b><em></em></span>
+              <span class="story-heart heart-a"></span>
+              <span class="story-heart heart-b"></span>
+            </div>
+            <div class="scroll-bottom" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="ground coop-ground" aria-hidden="true"></div>
+      </section>
+
+      <section class="stage stage-hobbies" id="hobbies" data-stage-title="爱好">
+        <div class="hobby-kitchen-decor" aria-hidden="true">
+          <span class="order-ticket ticket-a"></span>
+          <span class="order-ticket ticket-b"></span>
+          <span class="order-ticket ticket-c"></span>
+          <span class="chef-sprite chef-a"><i></i><b></b></span>
+          <span class="chef-sprite chef-b"><i></i><b></b></span>
+          <span class="stove-burner burner-a"></span>
+          <span class="stove-burner burner-b"></span>
+          <span class="kitchen-pan pan-a"><i></i></span>
+          <span class="knife-sticker"></span>
+          <span class="food-bit tomato-bit"></span>
+          <span class="food-bit lettuce-bit"></span>
+          <span class="food-bit cheese-bit"></span>
+          <span class="food-bit onion-bit"></span>
+        </div>
+
+        <div class="stage-inner hobbies-layout kitchen-layout">
+          <div class="kitchen-header">
+            <div class="stage-copy">
+              <p class="eyebrow kitchen-eyebrow">第三关 · 爱好</p>
+            </div>
+
+            <div class="kitchen-orders pixel-panel" aria-label="爱好订单">
+              <span>01 · 电影</span>
+              <span>02 · 游戏</span>
+              <span>03 · 旅行</span>
+              <span>04 · 其他</span>
+              <a href="#strengths">下一关</a>
+            </div>
+
+            <div class="mini-kitchen-scene pixel-panel" aria-hidden="true">
+              <span class="station-counter counter-left"></span>
+              <span class="station-counter counter-right"></span>
+              <span class="station-counter counter-bottom"></span>
+              <span class="station-chef scene-chef-a"></span>
+              <span class="station-chef scene-chef-b"></span>
+              <span class="station-pot"></span>
+              <span class="station-plate plate-a"></span>
+              <span class="station-plate plate-b"></span>
+              <span class="station-fire"></span>
+              <span class="station-food scene-tomato"></span>
+              <span class="station-food scene-lettuce"></span>
+            </div>
+          </div>
+
+          <div class="hobby-kitchen-grid">
+            <section class="kitchen-panel movie-panel pixel-panel" aria-labelledby="movie-title">
+              <div class="panel-heading">
+                <span>01</span>
+                <h3 id="movie-title">电影 · 个人Top10</h3>
+              </div>
+              <div class="movie-grid">
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png" alt="爱乐之城电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>01</span>
+                  <strong>爱乐之城</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg" alt="阿甘正传电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>02</span>
+                  <strong>阿甘正传</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/The_Curious_Case_of_Benjamin_Button_%28film%29.png" alt="本杰明·巴顿奇事电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>03</span>
+                  <strong>本杰明·巴顿奇事</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Trumanshow.jpg" alt="楚门的世界电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>04</span>
+                  <strong>楚门的世界</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/1/10/The_Greatest_Showman_poster.png" alt="马戏之王电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>05</span>
+                  <strong>马戏之王</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Catch_Me_If_You_Can_2002_movie.jpg" alt="猫鼠游戏电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>06</span>
+                  <strong>猫鼠游戏</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Love_Actually_movie.jpg" alt="真爱至上电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>07</span>
+                  <strong>真爱至上</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg" alt="星际穿越电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>08</span>
+                  <strong>星际穿越</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Hacksaw_Ridge_poster.png" alt="血战钢锯岭电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>09</span>
+                  <strong>血战钢锯岭</strong>
+                </article>
+                <article class="poster-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/X-Men_Days_of_Future_Past_poster.jpg" alt="X战警：逆转未来电影封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>10</span>
+                  <strong>X战警：逆转未来</strong>
+                </article>
+              </div>
+            </section>
+
+            <section class="kitchen-panel game-panel pixel-panel" aria-labelledby="game-title">
+              <div class="panel-heading">
+                <span>02</span>
+                <h3 id="game-title">游戏</h3>
+              </div>
+              <div class="game-grid">
+                <article class="game-card game-feature">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/League_of_Legends_2019_vector.svg/330px-League_of_Legends_2019_vector.svg.png" alt="英雄联盟图标" loading="lazy" referrerpolicy="no-referrer" />
+                  <div>
+                    <strong>英雄联盟</strong>
+                    <p>上海财经大学校队上单 · 最高段位大师</p>
+                  </div>
+                </article>
+                <article class="game-card game-feature">
+                  <img src="https://wiki.leagueoflegends.com/en-us/images/thumb/Teamfight_Tactics_Cover_17.jpg/1200px-Teamfight_Tactics_Cover_17.jpg?b743d" alt="云顶之弈插图" loading="lazy" referrerpolicy="no-referrer" />
+                  <div>
+                    <strong>金铲铲 / 云顶之弈</strong>
+                    <p>多赛季大师</p>
+                  </div>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/a/aa/It_Takes_Two_cover_art.png" alt="双人成行封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>合作通关</span>
+                  <strong>双人成行</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/8/83/A_Way_Out_Logo.jpg" alt="逃出生天封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>合作通关</span>
+                  <strong>逃出生天</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/6/69/Overcooked_cover_art.jpg" alt="胡闹厨房封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>合作通关</span>
+                  <strong>胡闹厨房</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Kingdom_Two_Crowns_cover_art.jpg" alt="王国·两位君主封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>合作通关</span>
+                  <strong>王国·两位君主</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/4/40/Split_Fiction_cover_art.jpg" alt="双影奇境封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>合作通关</span>
+                  <strong>双影奇境</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/e/ee/Detroit_Become_Human.jpg" alt="底特律：变人封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>3A大作</span>
+                  <strong>底特律：变人</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg" alt="荒野大镖客2封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>3A大作</span>
+                  <strong>荒野大镖客2</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" alt="赛博朋克2077封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>3A大作</span>
+                  <strong>赛博朋克2077</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Mafia_Definitive_Edition.jpg/250px-Mafia_Definitive_Edition.jpg" alt="四海兄弟：最终版封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>3A大作</span>
+                  <strong>四海兄弟：最终版</strong>
+                </article>
+                <article class="game-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Black_Myth_Wukong_cover_art.jpg/250px-Black_Myth_Wukong_cover_art.jpg" alt="黑神话：悟空封面" loading="lazy" referrerpolicy="no-referrer" />
+                  <span>3A大作</span>
+                  <strong>黑神话：悟空</strong>
+                </article>
+              </div>
+            </section>
+
+            <section class="kitchen-panel travel-panel pixel-panel" aria-labelledby="travel-title">
+              <div class="panel-heading">
+                <span>03</span>
+                <h3 id="travel-title">旅行（已经去过的国家）</h3>
+              </div>
+              <div class="travel-board">
+                <div class="travel-map" data-travel-map aria-label="已经去过的国家地图"></div>
+                <div class="travel-preview" aria-live="polite">
+                  <div class="travel-capital-photo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg/330px-%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg" alt="韩国首都首尔图片" data-travel-preview-img loading="lazy" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="travel-flag-card">
+                    <img src="https://flagcdn.com/w160/kr.png" alt="韩国国旗" data-travel-preview-flag loading="lazy" referrerpolicy="no-referrer" />
+                    <strong data-travel-preview-title>韩国</strong>
+                    <span data-travel-preview-capital>首都：首尔</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="kitchen-panel misc-panel pixel-panel" aria-labelledby="misc-title">
+              <div class="panel-heading">
+                <span>04</span>
+                <h3 id="misc-title">其他爱好</h3>
+              </div>
+              <div class="misc-hobby-grid">
+                <article><span class="plate-mark mark-book"></span><strong>阅读</strong></article>
+                <article><span class="plate-mark mark-card"></span><strong>德州扑克</strong></article>
+                <article><span class="plate-mark mark-ball"></span><strong>篮球</strong></article>
+                <article><span class="plate-mark mark-mic"></span><strong>美食</strong></article>
+                <article><span class="plate-mark mark-music"></span><strong>钢琴</strong></article>
+                <article><span class="plate-mark mark-board-game"></span><strong>围棋&象棋</strong></article>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="coin-trail trail-hobby" aria-label="第三关金币">
+          <button class="coin-button" type="button" data-coin="hobbies-1" aria-label="收集第三关金币 1"></button>
+          <button class="coin-button" type="button" data-coin="hobbies-2" aria-label="收集第三关金币 2"></button>
+          <button class="coin-button" type="button" data-coin="hobbies-3" aria-label="收集第三关金币 3"></button>
+        </div>
+
+        <div class="ground kitchen-ground" aria-hidden="true"></div>
+      </section>
+
+      <section class="stage stage-strengths" id="strengths" data-stage-title="技能">
+        <div class="lol-rift-decor" aria-hidden="true">
+          <span class="rift-lane lane-top"></span>
+          <span class="rift-lane lane-mid"></span>
+          <span class="rift-lane lane-bot"></span>
+          <span class="rift-river"></span>
+          <span class="rift-turret turret-blue"></span>
+          <span class="rift-turret turret-red"></span>
+          <span class="rift-dragon"></span>
+          <span class="rift-baron"></span>
+          <span class="rift-orb orb-blue"></span>
+          <span class="rift-orb orb-red"></span>
+          <span class="lol-pixel-hero jinx-hero"><i></i><b></b><em></em></span>
+          <span class="lol-pixel-hero vi-hero"><i></i><b></b><em></em></span>
+          <span class="jinx-rocket"></span>
+          <span class="vi-punch"></span>
+        </div>
+        <div class="coin-trail trail-strengths" aria-label="第四关金币">
+          <button class="coin-button" type="button" data-coin="strengths-1" aria-label="收集第四关金币 1"></button>
+          <button class="coin-button" type="button" data-coin="strengths-2" aria-label="收集第四关金币 2"></button>
+          <button class="coin-button" type="button" data-coin="strengths-3" aria-label="收集第四关金币 3"></button>
+        </div>
+
+        <div class="stage-inner strengths-layout lol-skills-layout">
+          <div class="stage-copy lol-copy">
+            <p class="eyebrow lol-eyebrow">第四关 · 技能</p>
+            <figure class="lol-logo-panel pixel-panel">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/League_of_Legends_2019_vector.svg/330px-League_of_Legends_2019_vector.svg.png" alt="League of Legends 标志" loading="lazy" referrerpolicy="no-referrer" />
+            </figure>
+
+            <div class="lol-mini-game pixel-panel" aria-hidden="true">
+              <span class="mini-rift-map">
+                <i class="mini-river"></i>
+                <i class="mini-lane lane-1"></i>
+                <i class="mini-lane lane-2"></i>
+                <i class="mini-lane lane-3"></i>
+                <b class="mini-base base-blue"></b>
+                <b class="mini-base base-red"></b>
+                <em class="mini-ward ward-a"></em>
+                <em class="mini-ward ward-b"></em>
+              </span>
+              <span class="lol-champion champ-blue"><i></i><b></b></span>
+              <span class="lol-champion champ-red"><i></i><b></b></span>
+              <span class="lol-minion minion-a"></span>
+              <span class="lol-minion minion-b"></span>
+              <span class="lol-minion minion-c"></span>
+              <span class="skill-shot shot-a"></span>
+              <span class="skill-shot shot-b"></span>
+              <span class="ability-bar">
+                <i>Q</i><i>W</i><i>E</i><i>R</i>
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-tower lol-skill-board pixel-panel" aria-label="英雄联盟风格技能能力">
+            <button class="skill-block lol-skill-card ability-q" type="button" data-strength="语言" data-power="94" data-detail="语言" style="--power: 94%">
+              <span class="skill-rune rune-language"><b>Q</b><em>LAN</em></span>
+              <div>
+                <strong>语言</strong>
+                <p>沟通视野 · 跨语境补刀</p>
+                <ul>
+                  <li class="skill-line is-wide">英语：TOEFL 104 / GRE 329 / CET-6</li>
+                  <li class="skill-line">日语：日语专业四级 / JLPT-N2</li>
+                  <li class="skill-line">粤语：日常沟通</li>
+                </ul>
+              </div>
+              <i></i>
+            </button>
+
+            <button class="skill-block lol-skill-card ability-w" type="button" data-strength="AI" data-power="92" data-detail="AI" style="--power: 92%">
+              <span class="skill-rune rune-ai"><b>W</b><em>AI</em></span>
+              <div>
+                <strong>AI</strong>
+                <p>技能连招 · Agent 指挥</p>
+                <ul>
+                  <li class="skill-line is-wide">DeepSeek / Kimi / ChatGPT 等国内外大模型</li>
+                  <li class="skill-line is-wide">理解 RAG、Transformer 架构等 AI 原理</li>
+                  <li class="skill-line is-xl">熟悉国内外 AI Agent：Claude Code / Codex / OpenClaw / WorkBuddy</li>
+                  <li class="skill-line is-wide">具备 vibe coding 能力与审美判断</li>
+                </ul>
+              </div>
+              <i></i>
+            </button>
+
+            <button class="skill-block lol-skill-card ability-e" type="button" data-strength="数据" data-power="86" data-detail="数据" style="--power: 86%">
+              <span class="skill-rune rune-data"><b>E</b><em>DATA</em></span>
+              <div>
+                <strong>数据</strong>
+                <p>经济面板 · 复盘判断</p>
+                <ul>
+                  <li class="skill-line">熟练使用 SQL 程序语言</li>
+                  <li class="skill-line">Excel 数据分析与画图</li>
+                </ul>
+              </div>
+              <i></i>
+            </button>
+
+            <button class="skill-block lol-skill-card ability-r" type="button" data-strength="产品经理" data-power="90" data-detail="产品经理" style="--power: 90%">
+              <span class="skill-rune rune-pm"><b>R</b><em>PM</em></span>
+              <div>
+                <strong>产品经理</strong>
+                <p>开团落地 · 方案推进</p>
+                <ul>
+                  <li class="skill-line">Figma / 墨刀等生产力软件</li>
+                  <li class="skill-line">XMind 结构化梳理</li>
+                  <li class="skill-line">独立输出产品原型图</li>
+                  <li class="skill-line">竞品分析与 PRD 文档</li>
+                </ul>
+              </div>
+              <i></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="ground tech-ground lol-ground" aria-hidden="true"></div>
+      </section>
+
+      <section class="stage stage-projects" id="projects" data-stage-title="项目">
+        <div class="nba-arena-decor" aria-hidden="true">
+          <span class="arena-light light-a"></span>
+          <span class="arena-light light-b"></span>
+          <span class="arena-light light-c"></span>
+          <span class="court-stripe stripe-a"></span>
+          <span class="court-stripe stripe-b"></span>
+          <span class="pixel-basketball ball-a"></span>
+          <span class="pixel-basketball ball-b"></span>
+          <span class="nba-2k-billboard"><i>2K</i><b>MYCAREER</b></span>
+          <span class="nba-vc-token">VC</span>
+          <span class="nba-score-flash">DUNK</span>
+        </div>
+        <div class="coin-trail trail-projects" aria-label="第五关金币">
+          <button class="coin-button" type="button" data-coin="projects-1" aria-label="收集第五关金币 1"></button>
+          <button class="coin-button" type="button" data-coin="projects-2" aria-label="收集第五关金币 2"></button>
+          <button class="coin-button" type="button" data-coin="projects-3" aria-label="收集第五关金币 3"></button>
+        </div>
+
+        <div class="stage-inner project-arena">
+          <div class="stage-copy project-heading nba-project-heading">
+            <p class="eyebrow nba-eyebrow">第五关 · 项目</p>
+            <div class="hero-actions nba-next-tab">
+              <a href="#contact">下一关</a>
+            </div>
+          </div>
+
+          <div class="nba-mini-court pixel-panel" aria-hidden="true">
+            <span class="court-logo">2K</span>
+            <span class="court-half"></span>
+            <span class="court-paint"></span>
+            <span class="court-hoop"><i></i><b></b></span>
+            <span class="court-player player-red"><i></i><b></b></span>
+            <span class="court-player player-blue"><i></i><b></b></span>
+            <span class="court-star-player"><i></i><b></b><em>23</em></span>
+            <span class="court-dunk-ball"></span>
+            <span class="dribble-ball"></span>
+            <span class="shot-meter"><i></i></span>
+          </div>
+
+          <div class="project-grid nba-project-grid">
+            <article class="project-card nba-player-card" data-project-card data-project="short-drama">
+              <div class="project-face project-front nba-card-front">
+                <span class="boss-badge nba-rating">NUMBER 01</span>
+                <small>PG · PRODUCT</small>
+                <h3>小红书短剧内容商业化功能设计与变现</h3>
+                <p>项目背景：解决小红书短剧“内容流量与电商交易链路断裂”痛点</p>
+                <dl class="project-stats">
+                  <div><dt>职位</dt><dd>产品经理</dd></div>
+                  <div><dt>产物</dt><dd>3 份附件</dd></div>
+                  <div class="is-wide"><dt>核心设计</dt><dd>短剧小橱窗（剧中同款商品推荐）功能</dd></div>
+                </dl>
+                <button type="button" data-project-open>详情</button>
+              </div>
+              <div class="project-face project-back nba-card-back">
+                <span class="boss-badge nba-rating">MVP</span>
+                <h3>项目附件</h3>
+                <p>围绕小红书短剧场景，拆解竞品、设计核心流程，并输出可落地的 PRD 文档。</p>
+                <div class="project-links">
+                  <a href="./assets/xhs-short-drama-competitive-analysis-yangsihan.pdf" target="_blank" rel="noreferrer">竞品分析</a>
+                  <a href="./assets/xhs-short-drama-flowchart-yangsihan.pdf" target="_blank" rel="noreferrer">流程图</a>
+                  <a href="./assets/xhs-short-drama-prd-yangsihan.pdf" target="_blank" rel="noreferrer">PRD 文档</a>
+                </div>
+                <button type="button" data-project-close>返回</button>
+              </div>
+            </article>
+
+            <article class="project-card nba-player-card" data-project-card data-project="media-ops">
+              <div class="project-face project-front nba-card-front">
+                <span class="boss-badge nba-rating">NUMBER 02</span>
+                <small>SG · CONTENT OPS</small>
+                <h3>自媒体账号运营</h3>
+                <p>从 0 到 1 搭建 B 站、抖音、小红书账号，结合热点和账号属性发布创意性、干货类内容。</p>
+                <dl class="project-stats">
+                  <div><dt>视频</dt><dd>9+</dd></div>
+                  <div><dt>播放</dt><dd>20w+</dd></div>
+                  <div><dt>单条最高</dt><dd>9w</dd></div>
+                  <div><dt>点赞</dt><dd>5k+</dd></div>
+                </dl>
+                <button type="button" data-project-open>详情</button>
+              </div>
+              <div class="project-face project-back nba-card-back">
+                <span class="boss-badge nba-rating">HOT</span>
+                <h3>运营复盘</h3>
+                <p>完成选题洞察、脚本打磨、内容发布和数据复盘，验证账号定位与用户兴趣的匹配度。</p>
+                <ul class="project-playbook">
+                  <li>搜集热点并结合账号属性二次创作</li>
+                  <li>发布创意性内容与可收藏的干货内容</li>
+                  <li>用播放、点赞与单条表现调整后续选题</li>
+                </ul>
+                <button type="button" data-project-close>返回</button>
+              </div>
+            </article>
+
+            <article class="project-card nba-player-card" data-project-card data-project="vibe-coding">
+              <div class="project-face project-front nba-card-front">
+                <span class="boss-badge nba-rating">NUMBER 03</span>
+                <small>SF · VIBE CODING</small>
+                <h3>Vibe Coding 实例</h3>
+                <p>用 AI 工具把想法快速推成可用 MVP，并持续迭代界面、流程和核心体验。</p>
+                <dl class="project-stats">
+                  <div><dt>已完成项目</dt><dd>个人记账 App（MVP版本）</dd></div>
+                  <div><dt>正在进行中项目</dt><dd>赛博算命</dd></div>
+                  <div class="is-wide"><dt>日常工具</dt><dd class="tool-line">Codex / Claude Code / stitch / figma / Gemini</dd></div>
+                </dl>
+                <button type="button" data-project-open>详情</button>
+              </div>
+              <div class="project-face project-back nba-card-back">
+                <span class="boss-badge nba-rating">WIP</span>
+                <h3>Vibe Coding 进度</h3>
+                <p>已完成项目：个人记账 App（MVP版本）。正在进行中项目：赛博算命。</p>
+                <div class="project-links">
+                  <a href="https://www.weasleyaccounting.online/" target="_blank" rel="noreferrer">打开记账 App</a>
+                  <span>赛博算命 · 正在研发中</span>
+                </div>
+                <button type="button" data-project-close>返回</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="ground nba-ground" aria-hidden="true"></div>
+      </section>
+
+      <footer class="stage stage-contact" id="contact" data-stage-title="联系我">
+        <div class="pokemon-contact-decor" aria-hidden="true">
+          <span class="poke-cloud cloud-left"></span>
+          <span class="poke-cloud cloud-right"></span>
+          <span class="poke-ball ball-left"></span>
+          <span class="poke-ball ball-right"></span>
+          <span class="bolt bolt-a"></span>
+          <span class="bolt bolt-b"></span>
+        </div>
+        <div class="coin-trail trail-contact" aria-label="最终关金币">
+          <button class="coin-button" type="button" data-coin="contact-1" aria-label="收集最终关金币 1"></button>
+          <button class="coin-button" type="button" data-coin="contact-2" aria-label="收集最终关金币 2"></button>
+          <button class="coin-button" type="button" data-coin="contact-3" aria-label="收集最终关金币 3"></button>
+        </div>
+
+        <div class="stage-inner contact-layout pokemon-contact-layout">
+          <div class="stage-copy pokemon-contact-copy">
+            <p class="eyebrow pokemon-eyebrow">FINAL · 联系我</p>
+
+            <div class="pikachu-pixel" aria-hidden="true">
+              <span class="pika-ear ear-left"></span>
+              <span class="pika-ear ear-right"></span>
+              <span class="pika-head"></span>
+              <span class="pika-eye eye-left"></span>
+              <span class="pika-eye eye-right"></span>
+              <span class="pika-cheek cheek-left"></span>
+              <span class="pika-cheek cheek-right"></span>
+              <span class="pika-mouth"></span>
+              <span class="pika-body"></span>
+              <span class="pika-tail"></span>
+            </div>
+
+            <div class="pokemon-battle-game pixel-panel" aria-hidden="true">
+              <span class="battle-hp hp-ally"><i></i></span>
+              <span class="battle-hp hp-wild"><i></i></span>
+              <span class="battle-pika"><i></i><b></b></span>
+              <span class="battle-wild"><i></i><b></b></span>
+              <span class="battle-thunder"></span>
+              <span class="battle-ball"></span>
+              <span class="battle-menu"><i>THUNDER</i><i>MAIL</i></span>
+            </div>
+
+            <div class="contact-links pokemon-contact-links" aria-label="联系方式">
+              <a href="mailto:yangsihan222@163.com"><span>邮箱</span><strong>yangsihan222@163.com</strong></a>
+              <span class="contact-card"><span>微信号</span><strong>weasleyyy28</strong></span>
+              <a href="tel:+8613729843685"><span>手机号</span><strong>+86 13729843685</strong></a>
+            </div>
+          </div>
+
+          <form
+            class="contact-form pokemon-contact-form pixel-panel"
+            action="https://formsubmit.co/yangsihan222@163.com"
+            method="POST"
+            data-contact-form
+            data-mail-to="yangsihan222@163.com"
+          >
+            <input type="hidden" name="_subject" value="来自杨思翰个人主页的新留言" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <label>
+              <span>你的称呼</span>
+              <input name="name" type="text" placeholder="Name" autocomplete="name" required />
+            </label>
+            <label>
+              <span>联系方式</span>
+              <input name="contact" type="text" placeholder="Email / WeChat / Phone" autocomplete="email" required />
+            </label>
+            <label>
+              <span>想聊什么</span>
+              <textarea name="message" rows="4" placeholder="Message" required></textarea>
+            </label>
+            <button type="submit">发送信息</button>
+          </form>
+        </div>
+
+        <div class="ground pokemon-ground" aria-hidden="true"></div>
+      </footer>
+
+      <div class="toast-stack" data-toast-stack aria-live="polite"></div>
+      <div class="clear-modal" data-clear-modal role="dialog" aria-modal="true" aria-labelledby="clear-title" hidden>
+        <div class="clear-card pixel-panel">
+          <span class="clear-badge" aria-hidden="true">CLEAR</span>
+          <h2 id="clear-title">恭喜你已通关！</h2>
+          <p>看起来你已经认识Weasley了，接下来快去联系他吧！</p>
+          <button type="button" data-clear-close>去联系他</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="./script.js?v=stage-coins2"></script>
+  </body>
+</html>
