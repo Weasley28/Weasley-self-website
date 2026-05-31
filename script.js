@@ -481,7 +481,50 @@ function bindHobbies() {
 
 function bindTravelPins() {
   if (!travelMapEl) return;
-  renderTravelFallback();
+  if (!window.L) {
+    renderTravelFallback();
+    return;
+  }
+
+  const map = L.map(travelMapEl, {
+    center: [24, 18],
+    zoom: 2,
+    minZoom: 2,
+    maxZoom: 6,
+    scrollWheelZoom: false,
+    worldCopyJump: true,
+  });
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    minZoom: 2,
+    maxZoom: 6,
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>',
+  }).addTo(map);
+
+  const markers = visitedCountries.map((country, index) => {
+    const marker = L.circleMarker(country.latLng, travelMarkerStyle(index === 0)).addTo(map);
+    country.marker = marker;
+    marker
+      .bindTooltip(country.country, {
+        permanent: true,
+        direction: country.labelDirection,
+        offset: country.labelOffset,
+        className: "country-label",
+      })
+      .openTooltip();
+    marker.on("click", () => selectTravelCountry(country, marker.getElement(), false));
+    return marker;
+  });
+
+  const markerGroup = L.featureGroup(markers);
+  map.fitBounds(markerGroup.getBounds().pad(0.22), { animate: false });
+  selectTravelCountry(visitedCountries[0], markers[0]?.getElement?.(), false);
+
+  window.setTimeout(() => {
+    map.invalidateSize();
+    map.fitBounds(markerGroup.getBounds().pad(0.22), { animate: false });
+  }, 180);
 }
 
 function bindStrengths() {
