@@ -47,9 +47,9 @@ const visitedCountries = [
     latLng: [35.9078, 127.7669],
     labelDirection: "right",
     labelOffset: [10, -4],
-    flag: "https://flagcdn.com/w160/kr.png",
+    flag: "./assets/images/flag-kr.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg/330px-%EC%A4%91%ED%99%94%EC%A0%84%EC%9D%98_%EB%82%AE.jpg",
+      "./assets/images/travel-kr-seoul.jpg",
   },
   {
     country: "越南",
@@ -57,9 +57,9 @@ const visitedCountries = [
     latLng: [14.0583, 108.2772],
     labelDirection: "top",
     labelOffset: [0, -12],
-    flag: "https://flagcdn.com/w160/vn.png",
+    flag: "./assets/images/flag-vn.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Hanoi_skyline_with_Ba_Vi_Mountain.jpg/330px-Hanoi_skyline_with_Ba_Vi_Mountain.jpg",
+      "./assets/images/travel-vn-hanoi.jpg",
   },
   {
     country: "新加坡",
@@ -67,9 +67,9 @@ const visitedCountries = [
     latLng: [1.3521, 103.8198],
     labelDirection: "bottom",
     labelOffset: [0, 12],
-    flag: "https://flagcdn.com/w160/sg.png",
+    flag: "./assets/images/flag-sg.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Marina_Bay_Singapore-3499.jpg/330px-Marina_Bay_Singapore-3499.jpg",
+      "./assets/images/travel-sg-singapore.jpg",
   },
   {
     country: "马来西亚",
@@ -77,9 +77,9 @@ const visitedCountries = [
     latLng: [4.2105, 101.9758],
     labelDirection: "left",
     labelOffset: [-10, 0],
-    flag: "https://flagcdn.com/w160/my.png",
+    flag: "./assets/images/flag-my.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Bukit_Bintang_junction_in_2024_2.jpg/330px-Bukit_Bintang_junction_in_2024_2.jpg",
+      "./assets/images/travel-my-kuala-lumpur.jpg",
   },
   {
     country: "泰国",
@@ -87,9 +87,9 @@ const visitedCountries = [
     latLng: [15.87, 100.9925],
     labelDirection: "right",
     labelOffset: [10, 0],
-    flag: "https://flagcdn.com/w160/th.png",
+    flag: "./assets/images/flag-th.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/01-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%9A%E0%B8%8D%E0%B8%88%E0%B8%A1%E0%B8%9A%E0%B8%9E%E0%B8%B4%E0%B8%95%E0%B8%A3%E0%B8%94%E0%B8%B8%E0%B8%AA%E0%B8%B4%E0%B8%95%E0%B8%A7%E0%B8%99%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%A7%E0%B8%A3%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg/330px-01-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%9A%E0%B8%8D%E0%B8%88%E0%B8%A1%E0%B8%9A%E0%B8%9E%E0%B8%B4%E0%B8%95%E0%B8%A3%E0%B8%94%E0%B8%B8%E0%B8%AA%E0%B8%B4%E0%B8%95%E0%B8%A7%E0%B8%99%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%A7%E0%B8%A3%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg",
+      "./assets/images/travel-th-bangkok.jpg",
   },
   {
     country: "英国",
@@ -97,9 +97,9 @@ const visitedCountries = [
     latLng: [55.3781, -3.436],
     labelDirection: "left",
     labelOffset: [-8, 0],
-    flag: "https://flagcdn.com/w160/gb.png",
+    flag: "./assets/images/flag-gb.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/London_Skyline_%28125508655%29.jpeg/330px-London_Skyline_%28125508655%29.jpeg",
+      "./assets/images/travel-gb-london.jpeg",
   },
   {
     country: "意大利",
@@ -107,9 +107,9 @@ const visitedCountries = [
     latLng: [41.8719, 12.5674],
     labelDirection: "bottom",
     labelOffset: [0, 12],
-    flag: "https://flagcdn.com/w160/it.png",
+    flag: "./assets/images/flag-it.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/330px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg",
+      "./assets/images/travel-it-rome.jpg",
   },
   {
     country: "奥地利",
@@ -117,9 +117,9 @@ const visitedCountries = [
     latLng: [47.5162, 14.5501],
     labelDirection: "right",
     labelOffset: [10, 0],
-    flag: "https://flagcdn.com/w160/at.png",
+    flag: "./assets/images/flag-at.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Schoenbrunn_philharmoniker_2012.jpg/330px-Schoenbrunn_philharmoniker_2012.jpg",
+      "./assets/images/travel-at-vienna.jpg",
   },
   {
     country: "丹麦",
@@ -127,9 +127,9 @@ const visitedCountries = [
     latLng: [56.2639, 9.5018],
     labelDirection: "top",
     labelOffset: [0, -10],
-    flag: "https://flagcdn.com/w160/dk.png",
+    flag: "./assets/images/flag-dk.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/2018_-_Christiansborg_from_the_Marble_Bridge.jpg/330px-2018_-_Christiansborg_from_the_Marble_Bridge.jpg",
+      "./assets/images/travel-dk-copenhagen.jpg",
   },
   {
     country: "冰岛",
@@ -137,9 +137,9 @@ const visitedCountries = [
     latLng: [64.9631, -19.0208],
     labelDirection: "top",
     labelOffset: [0, -10],
-    flag: "https://flagcdn.com/w160/is.png",
+    flag: "./assets/images/flag-is.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Reykjav%C3%ADk%2C_view_from_Hallgr%C3%ADmskirkja_%282%29.jpg/330px-Reykjav%C3%ADk%2C_view_from_Hallgr%C3%ADmskirkja_%282%29.jpg",
+      "./assets/images/travel-is-reykjavik.jpg",
   },
   {
     country: "美国",
@@ -147,9 +147,9 @@ const visitedCountries = [
     latLng: [37.0902, -95.7129],
     labelDirection: "right",
     labelOffset: [10, 0],
-    flag: "https://flagcdn.com/w160/us.png",
+    flag: "./assets/images/flag-us.png",
     capitalImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/12-07-13-washington-by-RalfR-08.jpg/330px-12-07-13-washington-by-RalfR-08.jpg",
+      "./assets/images/travel-us-washington-dc.jpg",
   },
 ];
 
@@ -481,50 +481,7 @@ function bindHobbies() {
 
 function bindTravelPins() {
   if (!travelMapEl) return;
-  if (!window.L) {
-    renderTravelFallback();
-    return;
-  }
-
-  const map = L.map(travelMapEl, {
-    center: [24, 18],
-    zoom: 2,
-    minZoom: 2,
-    maxZoom: 6,
-    scrollWheelZoom: false,
-    worldCopyJump: true,
-  });
-
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    minZoom: 2,
-    maxZoom: 6,
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>',
-  }).addTo(map);
-
-  const markers = visitedCountries.map((country, index) => {
-    const marker = L.circleMarker(country.latLng, travelMarkerStyle(index === 0)).addTo(map);
-    country.marker = marker;
-    marker
-      .bindTooltip(country.country, {
-        permanent: true,
-        direction: country.labelDirection,
-        offset: country.labelOffset,
-        className: "country-label",
-      })
-      .openTooltip();
-    marker.on("click", () => selectTravelCountry(country, marker.getElement(), false));
-    return marker;
-  });
-
-  const markerGroup = L.featureGroup(markers);
-  map.fitBounds(markerGroup.getBounds().pad(0.22), { animate: false });
-  selectTravelCountry(visitedCountries[0], markers[0]?.getElement?.(), false);
-
-  window.setTimeout(() => {
-    map.invalidateSize();
-    map.fitBounds(markerGroup.getBounds().pad(0.22), { animate: false });
-  }, 180);
+  renderTravelFallback();
 }
 
 function bindStrengths() {
