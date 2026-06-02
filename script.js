@@ -45,8 +45,7 @@ const visitedCountries = [
     country: "韩国",
     capital: "首尔",
     latLng: [35.9078, 127.7669],
-    labelDirection: "right",
-    labelOffset: [10, -4],
+    labelPoint: [875, 154],
     flag: "./assets/flag-kr.png",
     capitalImage:
       "./assets/travel-kr-seoul.jpg",
@@ -55,8 +54,7 @@ const visitedCountries = [
     country: "越南",
     capital: "河内",
     latLng: [14.0583, 108.2772],
-    labelDirection: "top",
-    labelOffset: [0, -12],
+    labelPoint: [840, 214],
     flag: "./assets/flag-vn.png",
     capitalImage:
       "./assets/travel-vn-hanoi.jpg",
@@ -65,8 +63,7 @@ const visitedCountries = [
     country: "新加坡",
     capital: "新加坡",
     latLng: [1.3521, 103.8198],
-    labelDirection: "bottom",
-    labelOffset: [0, 12],
+    labelPoint: [786, 318],
     flag: "./assets/flag-sg.png",
     capitalImage:
       "./assets/travel-sg-singapore.jpg",
@@ -75,8 +72,7 @@ const visitedCountries = [
     country: "马来西亚",
     capital: "吉隆坡",
     latLng: [4.2105, 101.9758],
-    labelDirection: "left",
-    labelOffset: [-10, 0],
+    labelPoint: [630, 286],
     flag: "./assets/flag-my.png",
     capitalImage:
       "./assets/travel-my-kuala-lumpur.jpg",
@@ -85,8 +81,7 @@ const visitedCountries = [
     country: "泰国",
     capital: "曼谷",
     latLng: [15.87, 100.9925],
-    labelDirection: "right",
-    labelOffset: [10, 0],
+    labelPoint: [846, 252],
     flag: "./assets/flag-th.png",
     capitalImage:
       "./assets/travel-th-bangkok.jpg",
@@ -95,8 +90,7 @@ const visitedCountries = [
     country: "英国",
     capital: "伦敦",
     latLng: [55.3781, -3.436],
-    labelDirection: "left",
-    labelOffset: [-8, 0],
+    labelPoint: [430, 154],
     flag: "./assets/flag-gb.png",
     capitalImage:
       "./assets/travel-gb-london.jpeg",
@@ -105,8 +99,7 @@ const visitedCountries = [
     country: "意大利",
     capital: "罗马",
     latLng: [41.8719, 12.5674],
-    labelDirection: "bottom",
-    labelOffset: [0, 12],
+    labelPoint: [498, 188],
     flag: "./assets/flag-it.png",
     capitalImage:
       "./assets/travel-it-rome.jpg",
@@ -115,8 +108,7 @@ const visitedCountries = [
     country: "奥地利",
     capital: "维也纳",
     latLng: [47.5162, 14.5501],
-    labelDirection: "right",
-    labelOffset: [10, 0],
+    labelPoint: [574, 150],
     flag: "./assets/flag-at.png",
     capitalImage:
       "./assets/travel-at-vienna.jpg",
@@ -125,8 +117,7 @@ const visitedCountries = [
     country: "丹麦",
     capital: "哥本哈根",
     latLng: [56.2639, 9.5018],
-    labelDirection: "top",
-    labelOffset: [0, -10],
+    labelPoint: [548, 88],
     flag: "./assets/flag-dk.png",
     capitalImage:
       "./assets/travel-dk-copenhagen.jpg",
@@ -135,8 +126,7 @@ const visitedCountries = [
     country: "冰岛",
     capital: "雷克雅未克",
     latLng: [64.9631, -19.0208],
-    labelDirection: "top",
-    labelOffset: [0, -10],
+    labelPoint: [420, 52],
     flag: "./assets/flag-is.png",
     capitalImage:
       "./assets/travel-is-reykjavik.jpg",
@@ -145,8 +135,7 @@ const visitedCountries = [
     country: "美国",
     capital: "华盛顿 D.C.",
     latLng: [37.0902, -95.7129],
-    labelDirection: "right",
-    labelOffset: [10, 0],
+    labelPoint: [260, 186],
     flag: "./assets/flag-us.png",
     capitalImage:
       "./assets/travel-us-washington-dc.jpg",
@@ -295,23 +284,42 @@ function renderHobby(key) {
   `;
 }
 
-function travelMarkerStyle(isActive = false) {
-  return {
-    radius: isActive ? 10 : 8,
-    color: "#151821",
-    weight: 3,
-    fillColor: isActive ? "#ffd34f" : "#e6534d",
-    fillOpacity: 1,
-    opacity: 1,
-  };
+const travelPassportSpreads = [
+  {
+    region: "亚洲",
+    code: "ASIA",
+    title: "近海冒险页",
+    countries: ["韩国", "越南", "泰国", "马来西亚", "新加坡"],
+    stampTone: "#90f0cd",
+    route: "首尔 / 河内 / 曼谷 / 吉隆坡 / 新加坡",
+  },
+  {
+    region: "欧洲",
+    code: "EUROPE",
+    title: "长途列车页",
+    countries: ["英国", "意大利", "奥地利", "丹麦", "冰岛"],
+    stampTone: "#d8c7f2",
+    route: "伦敦 / 罗马 / 维也纳 / 哥本哈根 / 雷克雅未克",
+  },
+  {
+    region: "北美",
+    code: "N.AMERICA",
+    title: "远航入境页",
+    countries: ["美国"],
+    stampTone: "#f3cb74",
+    route: "华盛顿 D.C.",
+  },
+];
+
+function findVisitedCountry(countryName) {
+  return visitedCountries.find((country) => country.country === countryName);
 }
 
 function selectTravelCountry(country, source, shouldReward = false) {
   if (!country) return;
 
-  visitedCountries.forEach((item) => item.marker?.setStyle(travelMarkerStyle(false)));
-  country.marker?.setStyle(travelMarkerStyle(true));
-  country.marker?.bringToFront?.();
+  visitedCountries.forEach((item) => item.marker?.classList.remove("is-active"));
+  country.marker?.classList.add("is-active");
 
   if (travelPreviewTitle) travelPreviewTitle.textContent = country.country;
   if (travelPreviewCapital) travelPreviewCapital.textContent = `首都：${country.capital}`;
@@ -331,7 +339,7 @@ function selectTravelCountry(country, source, shouldReward = false) {
   }
 }
 
-function renderTravelFallback() {
+function renderTravelListFallback() {
   if (!travelMapEl) return;
 
   const fallback = document.createElement("div");
@@ -352,6 +360,121 @@ function renderTravelFallback() {
 
   travelMapEl.replaceChildren(fallback);
   selectTravelCountry(visitedCountries[0], null, false);
+}
+
+function renderTravelPassport() {
+  if (!travelMapEl) {
+    renderTravelListFallback();
+    return;
+  }
+
+  let pageIndex = 0;
+  let selectedCountry = findVisitedCountry(travelPassportSpreads[0].countries[0]) || visitedCountries[0];
+
+  const countryNames = (spread) => spread.countries.map(findVisitedCountry).filter(Boolean);
+
+  const renderPage = (flipDirection = "") => {
+    const spread = travelPassportSpreads[pageIndex];
+    const spreadCountries = countryNames(spread);
+    if (!spreadCountries.includes(selectedCountry)) {
+      selectedCountry = spreadCountries[0] || visitedCountries[0];
+    }
+
+    travelMapEl.classList.remove("is-atlas");
+    travelMapEl.classList.add("is-passport");
+    travelMapEl.innerHTML = `
+      <div class="passport-shell">
+        <div class="passport-toolbar">
+          <div class="passport-led">
+            <strong>${spread.code}</strong>
+            <span>PAGE ${String(pageIndex + 1).padStart(2, "0")} / ${String(travelPassportSpreads.length).padStart(2, "0")}</span>
+          </div>
+          <div class="passport-controls" aria-label="护照翻页">
+            <button type="button" data-passport-prev aria-label="上一页签证章">&lt;</button>
+            <button type="button" data-passport-next aria-label="下一页签证章">&gt;</button>
+          </div>
+        </div>
+
+        <div class="passport-book ${flipDirection ? "is-flipping" : ""}" data-passport-book>
+          <section class="passport-page passport-page-left">
+            <div class="passport-page-top">
+              <span>WEASLEY PASSPORT</span>
+              <b>${spread.region}</b>
+            </div>
+            <div class="passport-id-strip">
+              <span>VISITED</span>
+              <strong>${String(spreadCountries.length).padStart(2, "0")}</strong>
+              <em>${spread.title}</em>
+            </div>
+            <div class="stamp-grid" data-stamp-grid></div>
+          </section>
+
+          <section class="passport-page passport-page-right">
+            <div class="passport-page-top">
+              <span>ENTRY RECORD</span>
+              <b>${selectedCountry.country}</b>
+            </div>
+            <div class="passport-visa-detail">
+              <div class="passport-photo-stamp">
+                <img src="${selectedCountry.flag}" alt="${selectedCountry.country}国旗" loading="lazy" />
+                <span>APPROVED</span>
+              </div>
+              <div class="passport-entry-copy">
+                <strong>${selectedCountry.country}</strong>
+                <span>CAPITAL · ${selectedCountry.capital}</span>
+                <p>${spread.route}</p>
+              </div>
+            </div>
+            <div class="boarding-pass">
+              <span>BOARDING PASS</span>
+              <strong>${spread.code} -> ${selectedCountry.country}</strong>
+              <em>STAMPED / UNLOCKED</em>
+            </div>
+          </section>
+        </div>
+      </div>
+    `;
+
+    const stampGrid = travelMapEl.querySelector("[data-stamp-grid]");
+    spreadCountries.forEach((country, index) => {
+      const stamp = document.createElement("button");
+      stamp.type = "button";
+      stamp.className = `visa-stamp${country === selectedCountry ? " is-active" : ""}`;
+      stamp.style.setProperty("--stamp-tone", spread.stampTone);
+      stamp.style.setProperty("--stamp-tilt", `${[-4, 3, -2, 4, -3][index % 5]}deg`);
+      stamp.setAttribute("aria-label", `查看${country.country}签证章`);
+      stamp.innerHTML = `
+        <img src="${country.flag}" alt="" loading="lazy" />
+        <strong>${country.country}</strong>
+        <span>${country.capital}</span>
+        <em>VISITED</em>
+      `;
+      country.marker = stamp;
+      stamp.addEventListener("click", () => {
+        selectedCountry = country;
+        renderPage();
+      });
+      stampGrid?.append(stamp);
+    });
+
+    travelMapEl.querySelector("[data-passport-prev]")?.addEventListener("click", () => {
+      pageIndex = (pageIndex - 1 + travelPassportSpreads.length) % travelPassportSpreads.length;
+      selectedCountry = countryNames(travelPassportSpreads[pageIndex])[0] || selectedCountry;
+      renderPage("prev");
+      playSfx("open");
+    });
+
+    travelMapEl.querySelector("[data-passport-next]")?.addEventListener("click", () => {
+      pageIndex = (pageIndex + 1) % travelPassportSpreads.length;
+      selectedCountry = countryNames(travelPassportSpreads[pageIndex])[0] || selectedCountry;
+      renderPage("next");
+      playSfx("open");
+    });
+
+    selectTravelCountry(selectedCountry, selectedCountry.marker, false);
+  };
+
+  renderPage();
 }
 
 function getAudioContext() {
@@ -481,50 +604,7 @@ function bindHobbies() {
 
 function bindTravelPins() {
   if (!travelMapEl) return;
-  if (!window.L) {
-    renderTravelFallback();
-    return;
-  }
-
-  const map = L.map(travelMapEl, {
-    center: [24, 18],
-    zoom: 2,
-    minZoom: 2,
-    maxZoom: 6,
-    scrollWheelZoom: false,
-    worldCopyJump: true,
-  });
-
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    minZoom: 2,
-    maxZoom: 6,
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>',
-  }).addTo(map);
-
-  const markers = visitedCountries.map((country, index) => {
-    const marker = L.circleMarker(country.latLng, travelMarkerStyle(index === 0)).addTo(map);
-    country.marker = marker;
-    marker
-      .bindTooltip(country.country, {
-        permanent: true,
-        direction: country.labelDirection,
-        offset: country.labelOffset,
-        className: "country-label",
-      })
-      .openTooltip();
-    marker.on("click", () => selectTravelCountry(country, marker.getElement(), false));
-    return marker;
-  });
-
-  const markerGroup = L.featureGroup(markers);
-  map.fitBounds(markerGroup.getBounds().pad(0.22), { animate: false });
-  selectTravelCountry(visitedCountries[0], markers[0]?.getElement?.(), false);
-
-  window.setTimeout(() => {
-    map.invalidateSize();
-    map.fitBounds(markerGroup.getBounds().pad(0.22), { animate: false });
-  }, 180);
+  renderTravelPassport();
 }
 
 function bindStrengths() {
